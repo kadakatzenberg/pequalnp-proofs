@@ -90,4 +90,29 @@ theorem all_decoder_separators :
 theorem decoder_examples_complete :
     decoderExamples.map Prod.fst = List.range 13 := by decide +kernel
 
+def completionWeight (s : Nat) (ws : List (Nat × Nat)) : Nat :=
+  ws.foldl (fun t lw => if (s &&& lw.1) == lw.1 then t + lw.2 else t) 0
+
+def completionCheck (s : Nat) : Bool :=
+  let ws := weights s
+  let c := completionWeight s ws
+  if 10 * (ws.map Prod.snd).foldl (·+·) 0 + c ≤ 600 then true
+  else (submasks s).all fun a =>
+    decide (10 * partitionWeight a (s-a) ws + c ≤ 600)
+
+set_option maxRecDepth 65536 in
+set_option maxHeartbeats 100000000 in
+theorem all_completion_representatives_pass : reps.all completionCheck = true := by
+  decide +kernel
+
+theorem strengthened_or_count (o : Nat) (h : 21762 ≤ 600*o) : 37 ≤ o := by
+  omega
+
+-- Transposition uses j-12 reverse joins, hence 37 ≤ o+j-12.
+theorem linear_filter_range (o j f a : Nat)
+    (hsize : o+j+f+a ≤ 63) (hjoins : 12 ≤ j)
+    (hreverse : 37 ≤ o+j-12) (hwidth : 13 ≤ f) :
+    (f = 13 ∧ a ≤ 1) ∨ (f = 14 ∧ a = 0) := by
+  omega
+
 end SophiaResearch.Arc1494LineOrCharge

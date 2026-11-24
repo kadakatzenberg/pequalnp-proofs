@@ -1,0 +1,39 @@
+{
+  "status": "EXACT_GEOMETRY_VERIFIED",
+  "minimum_line_neighborhood_by_size": [
+    0,
+    4,
+    7,
+    9,
+    10,
+    11,
+    11,
+    12,
+    12,
+    12,
+    13,
+    13,
+    13,
+    13
+  ],
+  "extension_tests": 6136,
+  "noncollinear_triple_tests": 3744,
+  "good_four_arcs_per_point_line": 27,
+  "noncanonical_14_cover": [
+    1046,
+    2092,
+    4184,
+    177,
+    354,
+    708,
+    1416,
+    2832,
+    5664,
+    3137,
+    6274,
+    4357,
+    3,
+    520
+  ],
+  "seconds": 0.031
+}

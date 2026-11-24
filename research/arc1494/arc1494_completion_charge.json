@@ -1,0 +1,10 @@
+{
+  "status": "EXACT_BOUND_VERIFIED",
+  "masks": 8192,
+  "coarse_masks": 7139,
+  "partition_tests": 7371,
+  "weighted_capacity": 600,
+  "weighted_demand": 21762,
+  "minimum_OR_gates": 37,
+  "seconds": 0.375
+}
