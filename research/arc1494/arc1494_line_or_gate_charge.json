@@ -1,0 +1,117 @@
+{
+  "contract": "ARC1494_LINE_OR_GATE_CHARGE_V1",
+  "status": "EXACT_BOUND_VERIFIED",
+  "lines": [
+    523,
+    1046,
+    2092,
+    4184,
+    177,
+    354,
+    708,
+    1416,
+    2832,
+    5664,
+    3137,
+    6274,
+    4357
+  ],
+  "arcs": 560,
+  "negative_four_arcs_per_line": [
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54
+  ],
+  "support_masks": 8178,
+  "coarse_bound_masks": 7125,
+  "partition_tests": 7371,
+  "max_partition_charge": 60,
+  "max_witness": [
+    3,
+    4,
+    60
+  ],
+  "max_by_size_of_nontrivial_masks": {
+    "3": 60,
+    "4": 60,
+    "5": 57
+  },
+  "decoder_separators": [
+    {
+      "line": 0,
+      "point": 0,
+      "arc": 116
+    },
+    {
+      "line": 1,
+      "point": 1,
+      "arc": 201
+    },
+    {
+      "line": 2,
+      "point": 2,
+      "arc": 83
+    },
+    {
+      "line": 3,
+      "point": 3,
+      "arc": 135
+    },
+    {
+      "line": 4,
+      "point": 0,
+      "arc": 78
+    },
+    {
+      "line": 5,
+      "point": 1,
+      "arc": 141
+    },
+    {
+      "line": 6,
+      "point": 2,
+      "arc": 281
+    },
+    {
+      "line": 7,
+      "point": 3,
+      "arc": 71
+    },
+    {
+      "line": 8,
+      "point": 4,
+      "arc": 71
+    },
+    {
+      "line": 9,
+      "point": 5,
+      "arc": 71
+    },
+    {
+      "line": 10,
+      "point": 0,
+      "arc": 142
+    },
+    {
+      "line": 11,
+      "point": 1,
+      "arc": 77
+    },
+    {
+      "line": 12,
+      "point": 0,
+      "arc": 202
+    }
+  ],
+  "seconds": 0.328
+}
