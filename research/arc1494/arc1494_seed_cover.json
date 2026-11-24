@@ -1,0 +1,12 @@
+{
+  "status": "UNKNOWN",
+  "vars": 380508,
+  "clauses": 776901,
+  "stats": {
+    "restarts": 1052,
+    "conflicts": 50000,
+    "decisions": 344802,
+    "propagations": 243783643
+  },
+  "seconds": 51.516
+}

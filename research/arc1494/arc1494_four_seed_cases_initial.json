@@ -1,0 +1,38 @@
+[
+  {
+    "seeds": [
+      3,
+      36,
+      80,
+      384
+    ],
+    "status": "UNKNOWN",
+    "vars": 58700,
+    "clauses": 99829,
+    "stats": {
+      "restarts": 4205,
+      "conflicts": 100000,
+      "decisions": 430077,
+      "propagations": 73546298
+    },
+    "seconds": 11.234
+  },
+  {
+    "seeds": [
+      3,
+      36,
+      1152,
+      4160
+    ],
+    "status": "UNSAT",
+    "vars": 58700,
+    "clauses": 87559,
+    "stats": {
+      "restarts": 1475,
+      "conflicts": 73153,
+      "decisions": 176201,
+      "propagations": 47921637
+    },
+    "seconds": 6.656
+  }
+]

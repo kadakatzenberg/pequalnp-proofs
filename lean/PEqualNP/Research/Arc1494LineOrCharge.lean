@@ -115,4 +115,53 @@ theorem linear_filter_range (o j f a : Nat)
     (f = 13 ∧ a ≤ 1) ∨ (f = 14 ∧ a = 0) := by
   omega
 
+def fullLineCount (s : Nat) : Nat :=
+  (lines.filter fun l => (s &&& l) == l).length
+
+-- Reserve 36 units of capacity for every full line contained in a
+-- support of size at least six. A crude upper bound suffices.
+def largeSupportCheck (s : Nat) : Bool :=
+  if 6 ≤ pop13 s then
+    let ws := weights s
+    decide (10 * (ws.map Prod.snd).foldl (·+·) 0 +
+      completionWeight s ws + 36 * fullLineCount s ≤ 600)
+  else true
+
+set_option maxRecDepth 65536 in
+set_option maxHeartbeats 100000000 in
+theorem all_large_support_reps_pass : reps.all largeSupportCheck = true := by
+  decide +kernel
+
+-- For every point outside a line, 30 of its negative four-arcs avoid
+-- that point. Also any pair outside the line extends to a negative
+-- four-arc. These facts make <=2 proper one-extra supports insufficient.
+def smallCompletionCheck (l : Nat) : Bool :=
+  let ns := negative l
+  (List.range 13).all (fun p =>
+    l.testBit p || ((ns.filter fun a => !a.testBit p).length == 30)) &&
+  (List.range 13).all (fun p => (List.range 13).all (fun q =>
+    l.testBit p || l.testBit q ||
+    ns.any (fun a => a.testBit p && a.testBit q)))
+
+set_option maxRecDepth 65536 in
+set_option maxHeartbeats 50000000 in
+theorem all_small_completions_pass :
+    lines.all smallCompletionCheck = true := by decide +kernel
+
+-- k counts distinct lines with an OR of exactly that singleton support.
+-- r counts all proper collinear OR supports of size two or three.
+-- Reserve 6 for each of the k lines and 36 for each other line.
+theorem refined_deficit_budget (r k : Nat) (hk : k ≤ 13)
+    (h : 60*r + 6*k + 36*(13-k) ≤ 438) :
+    r ≤ 6 ∧ 2*r+1 ≤ k := by omega
+
+theorem six_seed_equality (r k : Nat) (hk : k ≤ 13) (hr : r = 6)
+    (h : 60*r + 6*k + 36*(13-k) ≤ 438) :
+    k = 13 ∧ 60*r + 6*k + 36*(13-k) = 438 := by omega
+
+theorem refined_filter_requirement (c l n r : Nat)
+    (hpartition : c+l+n=13) (hr : r ≤ 6)
+    (hcharge : 2*c+l ≤ r) :
+    c ≤ 3 ∧ 7+c ≤ n := by omega
+
 end SophiaResearch.Arc1494LineOrCharge

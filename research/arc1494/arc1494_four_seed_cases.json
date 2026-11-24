@@ -1,0 +1,20 @@
+[
+  {
+    "seeds": [
+      3,
+      36,
+      80,
+      384
+    ],
+    "status": "UNKNOWN",
+    "vars": 58700,
+    "clauses": 201777,
+    "stats": {
+      "restarts": 22794,
+      "conflicts": 500000,
+      "decisions": 2118811,
+      "propagations": 248005534
+    },
+    "seconds": 59.281
+  }
+]

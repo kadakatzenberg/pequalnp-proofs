@@ -1,0 +1,30 @@
+{
+  "status": "EXACT_ENUMERATION",
+  "three_pair_sets": 76076,
+  "four_pair_sets": 1426425,
+  "bad_four_sets": 1053,
+  "collineations": 5616,
+  "orbits": [
+    {
+      "seeds": [
+        3,
+        36,
+        80,
+        384
+      ],
+      "size": 936
+    },
+    {
+      "seeds": [
+        3,
+        36,
+        1152,
+        4160
+      ],
+      "size": 117
+    }
+  ],
+  "large_reserve_max": 471,
+  "large_reserve_example": 183,
+  "seconds": 2.875
+}
