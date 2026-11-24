@@ -1,0 +1,11 @@
+{
+  "status": "EXACT_ENUMERATION",
+  "partitions_tested": 24921,
+  "patterns": {
+    "('plain', 30, 30)": 702,
+    "('plain', 15, 15, 30)": 1404,
+    "('plain', 15, 15, 15, 15)": 702,
+    "('extra', 30, 9, 9, 9)": 468
+  },
+  "seconds": 0.141
+}

@@ -164,4 +164,22 @@ theorem refined_filter_requirement (c l n r : Nat)
     (hcharge : 2*c+l ≤ r) :
     c ≤ 3 ∧ 7+c ≤ n := by omega
 
+def mergeVector (a b : Nat) (ws : List (Nat × Nat)) : List Nat :=
+  ws.map (fun lw => if (a &&& lw.1) != 0 && (b &&& lw.1) != 0 then lw.2 else 0)
+
+def mod15Check (s : Nat) : Bool :=
+  let ws := weights s
+  if completionWeight s ws != 0 || (ws.map Prod.snd).foldl (·+·) 0 < 60 then true
+  else (submasks s).all fun a =>
+    let v := mergeVector a (s-a) ws
+    v.foldl (·+·) 0 != 60 || v.all (fun x => x % 15 == 0)
+
+set_option maxRecDepth 65536 in
+set_option maxHeartbeats 100000000 in
+theorem all_saturated_mod15_pass : reps.all mod15Check = true := by
+  decide +kernel
+
+theorem saturated_line_count (r v : Nat)
+    (h : 54 + 54*r + 15*v = 162) : r = 2 := by omega
+
 end SophiaResearch.Arc1494LineOrCharge

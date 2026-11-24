@@ -1,0 +1,12 @@
+{
+  "status": "EXACT_ENUMERATION",
+  "partitions_tested": 12636,
+  "patterns": {
+    "(30, 30)": 702,
+    "(15, 15, 30)": 1404,
+    "(15, 15, 15, 15)": 702
+  },
+  "required_proper_gates_per_line": 2,
+  "required_total_proper_gates": 26,
+  "seconds": 0.344
+}
